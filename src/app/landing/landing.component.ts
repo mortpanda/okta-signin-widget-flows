@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import {OktaWidgetService} from '../shared/okta/okta-widget.service';
-import {OktaConfigService} from '../shared/okta/okta-config.service';
+import { OktaWidgetService } from '../shared/okta/okta-widget.service';
+import { OktaConfigService } from '../shared/okta/okta-config.service';
 import { ViewEncapsulation } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { HostListener } from "@angular/core";
+// import { HostListener } from "@angular/core";
+import { MenuListService } from '../shared/menu-list/menu-list.service';
+
 
 @Component({
   selector: 'app-landing',
@@ -14,10 +16,13 @@ import { HostListener } from "@angular/core";
 })
 export class LandingComponent implements OnInit {
   smallScreen: boolean;
+appMenu=[];
+
   constructor(
     private breakpointObserver: BreakpointObserver,
-    private OktaWidgetService:OktaWidgetService,
-    private OktaConfigService:OktaConfigService,
+    private OktaWidgetService: OktaWidgetService,
+    private OktaConfigService: OktaConfigService,
+    private MenuListService:MenuListService,
   ) {
     breakpointObserver.observe([
       Breakpoints.XSmall,
@@ -25,17 +30,19 @@ export class LandingComponent implements OnInit {
     ]).subscribe(result => {
       this.smallScreen = result.matches;
     });
-   }
 
-   @HostListener('window:resize', ['$event'])
-   onResize(event) {
-     event.target.innerWidth;
-     window.location.reload();
-   }
-  
+    this.appMenu = this.MenuListService.menuItems;
+  }
+
+  //  @HostListener('window:resize', ['$event'])
+  //  onResize(event) {
+  //    event.target.innerWidth;
+  //    window.location.reload();
+  //  }
+
   async ngOnInit() {
-    await this.OktaWidgetService.CloseWidget();
-    await this.OktaWidgetService.login();
+    // await this.OktaWidgetService.CloseWidget();
+    // await this.OktaWidgetService.login();
   }
 
 }

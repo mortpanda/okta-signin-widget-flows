@@ -12,3 +12,135 @@
 #okta-sign-in{
   margin-top: 0px!important;
 }
+
+
+.landingMainDiv {
+  // width:95%!important;
+  margin-top: 30px !important;
+  height: 60vh !important;
+}
+
+#appSpeedial {
+  .pi {
+    font-size: 40px !important;
+  }
+  .p-element {
+    .p-speeddial-action {
+      color: #00297A !important;
+      width: 8rem !important;
+      height: 8rem !important;
+      //  -webkit-backdrop-filter: blur(6px) !important;
+      //  backdrop-filter: blur(6px) !important;
+      background: #00297A !important;
+      border: solid #FFFFFF;
+      -webkit-box-shadow: 0px 5px 12px 0px #6e6e78 !important;
+      box-shadow: 0px 5px 12px 0px #6e6e78 !important;
+    }
+  }
+}
+#appSpeedial .p-speeddial .p-speeddial-button.p-button.p-button-icon-only {
+  box-shadow: 0px 5px 12px 0px #6e6e78 !important;
+}
+
+#appSpeedial {
+  .p-speeddial {
+    // box-shadow: 0px 5px 12px 0px #6E6E78!important;
+    .p-speeddial-button.p-button.p-button-icon-only {
+      // color: #ffffff !important;
+      color: #FFFFFF !important;
+      width: 9rem !important;
+      height: 9rem !important;
+      border: 5px solid !important;
+    }
+  }
+}
+
+#appSpeedial {
+  .p-speeddial {
+    margin-left: -80px !important;
+    margin-top: -70px !important;
+  }
+}
+
+.landingSubDial {
+  // border-style: dotted;
+  width: 30% !important;
+  // box-shadow: 0px 5px 12px 0px #6E6E78!important;
+  border-radius: 5px !important;
+}
+
+.landingSubRight {
+  border-radius: 5px !important;
+  background-color: #00297a !important;
+  border-style: dotted;
+  width: 50% !important;
+  box-shadow: 0px 5px 12px 0px #6e6e78 !important;
+}
+
+.imgPlatform {
+  width: 600px !important;
+  padding: auto;
+}
+
+.smallScreen {
+  width: 100vw !important;
+  height: 100vh !important;
+}
+
+.smDialDiv {
+  margin-top: 30vh !important;
+}
+
+.smBannerDiv {
+  margin-top: 25vh !important;
+  // border-radius: 5px!important;
+  background-color: #00297a !important;
+  text-align: center !important;
+  padding: 30px !important;
+}
+
+#smallSpeedial .p-speeddial .p-speeddial-button.p-button.p-button-icon-only {
+  box-shadow: 0px 5px 12px 0px #6e6e78 !important;
+}
+
+#smallSpeedial {
+  .pi {
+    font-size: 40px !important;
+  }
+  .p-element {
+    .p-speeddial-action {
+      color: #00297a !important;
+      width: 6rem !important;
+      height: 6rem !important;
+      //  -webkit-backdrop-filter: blur(6px) !important;
+      //  backdrop-filter: blur(6px) !important;
+      background: #FFFFFF !important;
+      box-shadow: 0px 5px 12px 0px #6E6E78!important;
+      border: solid #00297a;
+    }
+  }
+}
+
+#smallSpeedial {
+  .p-speeddial {
+    .p-speeddial-button.p-button.p-button-icon-only {
+      // color: #ffffff !important;
+      color: #FFFFFF !important;
+      width: 8rem !important;
+      height: 8rem !important;
+      border: 5px solid !important;
+    }
+  }
+}
+
+#smallSpeedial {
+  .p-speeddial {
+    margin-left: -64px !important;
+    margin-top: -70px !important;
+  }
+}
+
+.smallImage {
+  width: 300px !important;
+  padding: auto;
+}
