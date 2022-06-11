@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import {ModalComponent} from '../modal/modal.component';
+import { OktaConfigService } from '../okta/okta-config.service';
+import { DataService } from '../data-service/data.service';
+import { Subject, BehaviorSubject, Observable, ReplaySubject } from 'rxjs';
+import {OktaWidgetService} from '../okta/okta-widget.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +13,9 @@ export class MenuListService {
 
   constructor(
     private _matdialog: MatDialog,
+    private ModalComponent:ModalComponent,
+    private DataService: DataService,
+    private OktaWidgetService:OktaWidgetService,
   ) { }
 
   menuItems = [
@@ -21,7 +28,7 @@ export class MenuListService {
       // icon: "assets/img/signin_white.png",
       icon:"pi pi-sign-in",
       command: () => {
-        this.Logout();
+        this.OpenWidget('login');
       }
     },
     {
@@ -33,7 +40,7 @@ export class MenuListService {
       // icon: "assets/img/home_white.png",
       icon: "pi pi-sign-in",
       command: () => {
-        this.Logout();
+        this.OpenWidget('signup');
       } 
     },
     {
@@ -45,7 +52,7 @@ export class MenuListService {
       // icon: "assets/img/logout_white.png",
       icon:"pi pi-refresh",
       command: () => {
-        this.Logout();
+        this.OpenWidget('resetPassword');
       }
     },
     {
@@ -57,7 +64,7 @@ export class MenuListService {
       // icon: "assets/img/logout_white.png",
       icon:"pi pi-unlock",
       command: () => {
-        this.Logout();
+        this.OpenWidget('unlockAccount');
       }
     },
   ];
@@ -67,7 +74,15 @@ export class MenuListService {
     // this.OktaSDKAuthService.OktaSDKAuthClient.signOut();
   }
 
-  async GoHome() {
-    // window.location.replace(this.OktaConfigService.strPostLogoutURL);
+  
+  async OpenWidget(flow) {
+    await this.OktaWidgetService.CloseWidget();
+    await this.DataService.changeMessage(flow);
+    const DialogConfig = new MatDialogConfig();
+    DialogConfig.disableClose = false;
+    DialogConfig.id = "widget-modal-component";
+    DialogConfig.height = "auto";
+    DialogConfig.width = "auto";
+    const modalDialog = await this._matdialog.open(ModalComponent, DialogConfig);
   }
 }

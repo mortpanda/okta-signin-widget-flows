@@ -5,6 +5,8 @@ import { BehaviorSubject } from "rxjs";
 import OktaSignIn from '@okta/okta-signin-widget';
 import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
 import { OktaConfigService } from "./okta-config.service";
+import {DataService} from '../data-service/data.service';
+
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +22,11 @@ export class OktaWidgetService {
   public idToken;
   public LogoutURI = this.OktaConfig.strPostLogoutURL;
 
-  constructor(private router: Router, private OktaConfig: OktaConfigService) { }
+  constructor(
+    private router: Router, 
+    private OktaConfig: OktaConfigService,
+    public DataService:DataService,
+    ) { }
 
   async checkAuthenticated() {
     const authenticated = await this.authClient.session.exists();
@@ -28,21 +34,21 @@ export class OktaWidgetService {
     return authenticated;
   }
 
-  async login() {
+  async login(flow?) {
     const OktaClientID = this.OktaConfig.strClientID;
     const OktaBaseURI = this.OktaConfig.strBaseURI;
     const OktaLang = this.OktaConfig.strLang;
     const OktaRedirect = this.OktaConfig.strRedirectURL;
     const OktaBrand = this.OktaConfig.strBrand;
-    const OktaPostlogoutURI = this.OktaConfig.strPostLogoutURL;
+    // const OktaPostlogoutURI = this.OktaConfig.strPostLogoutURL;
     const OktaIssuer = this.OktaConfig.strIssuer;
     const OktaScope = this.OktaConfig.strScope;
-    const OktaResType = this.OktaConfig.strResponseType;
-    const OktaResMode = this.OktaConfig.strPrompt;
-    const OktaPKCE = this.OktaConfig.strPkce;
+    // const OktaResType = this.OktaConfig.strResponseType;
+    // const OktaResMode = this.OktaConfig.strPrompt;
+    // const OktaPKCE = this.OktaConfig.strPkce;
     // const OktaWidgetLogo = this.OktaConfig.strLogo;
     var oktaSignIn = new OktaSignIn({
-      flow: 'resetPassword',
+      flow: flow,
       // logo: OktaWidgetLogo,
       clientId: OktaClientID,
       baseUrl: OktaBaseURI,
@@ -52,12 +58,12 @@ export class OktaWidgetService {
         brand: OktaBrand,
       },
       // postLogoutRedirectUri: OktaPostlogoutURI,
-      features: {
-        rememberMe: false,
-        selfServiceUnlock: false,
-        hideSignOutLinkInMFA: false,
+      // features: {
+      //   rememberMe: false,
+      //   selfServiceUnlock: false,
+      //   hideSignOutLinkInMFA: false,
 
-      },
+      // },
       authParams: {
         issuer: OktaIssuer,
         // responseMode: OktaResMode,
@@ -125,11 +131,11 @@ export class OktaWidgetService {
     const OktaLang = this.OktaConfig.strLang;
     const OktaRedirect = this.OktaConfig.strRedirectURL;
     const OktaBrand = this.OktaConfig.strBrand;
-    const OktaPostlogoutURI = this.OktaConfig.strPostLogoutURL;
+    // const OktaPostlogoutURI = this.OktaConfig.strPostLogoutURL;
     const OktaIssuer = this.OktaConfig.strIssuer;
     const OktaScope = this.OktaConfig.strScope;
-    const OktaResType = this.OktaConfig.strResponseType;
-    const OktaResMode = this.OktaConfig.strResponseMode;
+    // const OktaResType = this.OktaConfig.strResponseType;
+    // const OktaResMode = this.OktaConfig.strResponseMode;
     var oktaSignIn = new OktaSignIn({
       clientId: OktaClientID,
       baseUrl: OktaBaseURI,
