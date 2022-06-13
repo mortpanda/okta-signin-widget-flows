@@ -75,7 +75,7 @@ export class MenuListService {
     await this.OktaWidgetService.CloseWidget();
     await this.DataService.changeMessage(flow);
     const DialogConfig = new MatDialogConfig();
-    DialogConfig.disableClose = false;
+    DialogConfig.disableClose = true;
     DialogConfig.id = "widget-modal-component";
     DialogConfig.height = "auto";
     DialogConfig.width = "auto";

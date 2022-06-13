@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data-service/data.service';
 import { Subject, BehaviorSubject, Observable, ReplaySubject } from 'rxjs';
 import {OktaWidgetService} from '../okta/okta-widget.service';
-
+import { ViewEncapsulation } from '@angular/core';
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',
-  styleUrls: ['./modal.component.scss']
+  styleUrls: ['./modal.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ModalComponent implements OnInit {
   selectedMessage: any;

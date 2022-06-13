@@ -1,4 +1,4 @@
-# OktaJapanTemplateV5Primeui
+# okta-signin-widget-flows
 Uses [Prime Ng UI](https://www.primefaces.org/primeng/) for the UI elements.
 
 # THIS IS NOT AN OFFICIAL TEMPLATE.  
@@ -10,6 +10,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development Environment
 ```
+
+     _                      _                 ____ _     ___
     / \   _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|
    / △ \ | '_ \ / _` | | | | |/ _` | '__|   | |   | |    | |
   / ___ \| | | | (_| | |_| | | (_| | |      | |___| |___ | |
@@ -17,34 +19,69 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
                 |___/
 
 
-Angular CLI: 11.0.4
-Node: 14.15.0
-OS: linux x64
+Angular CLI: 13.3.5
+Node: 16.15.0
+Package Manager: npm 8.10.0
+OS: linux arm64
 
-Angular: 11.0.4
-... animations, cli, common, compiler, compiler-cli, core, forms
-... language-service, platform-browser, platform-browser-dynamic
-... router
-Ivy Workspace: Yes
+Angular: 13.3.6
+... animations, cdk, common, compiler, compiler-cli, core, forms
+... material, platform-browser, platform-browser-dynamic, router
 
 Package                         Version
 ---------------------------------------------------------
-@angular-devkit/architect       0.1100.4
-@angular-devkit/build-angular   0.1100.4
-@angular-devkit/core            11.0.4
-@angular-devkit/schematics      11.0.4
-@angular/cdk                    11.2.13
-@angular/flex-layout            12.0.0-beta.34
-@angular/http                   7.2.16
-@angular/localize               11.2.14
-@angular/material               11.2.13
-@schematics/angular             11.0.4
-@schematics/update              0.1100.4
-rxjs                            6.6.3
-typescript                      4.0.3
+@angular-devkit/architect       0.1303.5
+@angular-devkit/build-angular   13.3.5
+@angular-devkit/core            13.3.5
+@angular-devkit/schematics      13.3.5
+@angular/cli                    13.3.5
+@angular/flex-layout            13.0.0-beta.38
+@schematics/angular             13.3.5
+rxjs                            7.5.5
+typescript                      4.6.4
 
 
 ```
+
+## Configuration
+Place the below file in `src/app/shared/okta`.
+`okta-config.service.ts`
+
+## okta-config.service.ts Configuration file content
+```
+import { Injectable } from '@angular/core';
+
+
+@Injectable({
+  providedIn: 'root'
+})
+export class OktaConfigService {
+  constructor() { }
+  strGitHubRepo = {{ Your repo URL }};
+  strBaseURI = {{ Your Org's Base URI }};
+  strRedirectURL = {{ Your application's redirect URI }};
+  strClientID = {{ Your application's client ID }};
+  strIssuer = {{ Your org's base uri }} '/oauth2/default/';
+  strScope = {{ Your application's scope }};
+  strPostLogoutURL = {{ Your applications' post logout URI }};
+  strResponseType = {{ Your application's response type }};
+  strPrompt = 'login';
+  strPkce = true;
+  strLang = {{ Your locale }};
+  strBrand = {{ Your brand}};
+
+}
+```
+
+## tsconfig.json file
+The signin widget will need an additional paramter in the `tsconfig.json`,
+
+```
+ "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false
+  }
+```
+
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
@@ -65,4 +102,5 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
 ## Screenshots
+<img src="/Capture.PNG" alt="drawing" width="600"/>
 <img src="/Capture.PNG" alt="drawing" width="600"/>
