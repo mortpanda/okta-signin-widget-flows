@@ -25,7 +25,6 @@ export class MenuListService {
         tooltipLabel: "Login",
         tooltipPosition: "right",
       },
-      // icon: "assets/img/signin_white.png",
       icon:"pi pi-sign-in",
       command: () => {
         this.OpenWidget('login');
@@ -37,7 +36,6 @@ export class MenuListService {
         tooltipLabel: "Sign Up",
         tooltipPosition: "right",
       },
-      // icon: "assets/img/home_white.png",
       icon: "pi pi-sign-in",
       command: () => {
         this.OpenWidget('signup');
@@ -49,7 +47,6 @@ export class MenuListService {
         tooltipLabel: "Reset Password",
         tooltipPosition: "right",
       },
-      // icon: "assets/img/logout_white.png",
       icon:"pi pi-refresh",
       command: () => {
         this.OpenWidget('resetPassword');
@@ -61,7 +58,6 @@ export class MenuListService {
         tooltipLabel: "Unlock Account",
         tooltipPosition: "right",
       },
-      // icon: "assets/img/logout_white.png",
       icon:"pi pi-unlock",
       command: () => {
         this.OpenWidget('unlockAccount');
