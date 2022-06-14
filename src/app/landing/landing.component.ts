@@ -16,13 +16,13 @@ import { MenuListService } from '../shared/menu-list/menu-list.service';
 })
 export class LandingComponent implements OnInit {
   smallScreen: boolean;
-appMenu=[];
+  appMenu = [];
 
   constructor(
     private breakpointObserver: BreakpointObserver,
     private OktaWidgetService: OktaWidgetService,
     private OktaConfigService: OktaConfigService,
-    private MenuListService:MenuListService,
+    private MenuListService: MenuListService,
   ) {
     breakpointObserver.observe([
       Breakpoints.XSmall,
