@@ -3,6 +3,9 @@ import { DataService } from '../data-service/data.service';
 import { Subject, BehaviorSubject, Observable, ReplaySubject } from 'rxjs';
 import {OktaWidgetService} from '../okta/okta-widget.service';
 import { ViewEncapsulation } from '@angular/core';
+import {OktaConfigService} from '../okta/okta-config.service';
+import { Router, Routes, RouterModule } from '@angular/router'; 
+
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',
@@ -14,6 +17,8 @@ export class ModalComponent implements OnInit {
   constructor(
     private DataService: DataService,
     private OktaWidgetService:OktaWidgetService,
+    private OktaConfigService:OktaConfigService,
+    private Router:Router,
   ) { }
 
   async ngOnInit() {
@@ -26,7 +31,9 @@ export class ModalComponent implements OnInit {
   }
 
   GoBack(){
-    window.location.replace('/home')
+     window.location.replace(this.OktaConfigService.strPostLogoutURL)
+    
   }
+  
 
 }
